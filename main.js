@@ -13,7 +13,7 @@ server.listen(async () => {
             .metadata("ProxyChain listener")
             .listen()
             .then((listener) => {
-              console.log("Ingress established at:", listener.url());
+              console.log("Ingress established at:", listener.url().replace('tcp://', 'http://'));
               listener.forward('http://localhost:8081')
             });
         });
